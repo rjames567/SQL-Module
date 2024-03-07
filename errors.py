@@ -3,10 +3,9 @@ class Error(Exception):
 
     def __init__(self,
                  error_code: str,
-                 sql_state: str,
                  error_message: str
                  ):
-        self._message = f"SQL Error [{error_code}] ({sql_state}): {error_message}"
+        self._message = f"SQL Error [{error_code}]: {error_message}"
 
     def __repr__(self):
         return self._message
@@ -14,20 +13,26 @@ class Error(Exception):
     def __str__(self):
         return self._message
 
+
 class DataError(Error):
     pass
+
 
 class DatabaseError(Error):
     pass
 
+
 class IntegrityError(Error):
     pass
+
 
 class InternalError(Error):
     pass
 
+
 class ProgrammingError(Error):
     pass
+
 
 class Warning(Error):
     pass
